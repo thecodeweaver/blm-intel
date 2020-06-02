@@ -10,6 +10,7 @@
         <?php
         # TODO: Hashtags from web app
         # TODO: The actual tweets themselves (Use text alignment/CSS layout stuff to setup)
+        echo "Hello World!";
         ?>
 
         <footer style="font-size:200%">
