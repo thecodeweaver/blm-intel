@@ -1,19 +1,17 @@
 # tweet-intel
 A web application that displays real time information by scraping tweets. Made with 💙 by TheCodeWeaver.
+Thanks J7mbo for creating the [twitter-api-php](https://github.com/J7mbo/twitter-api-php) library!
 
 ## Running in a Docker container
-1. Follow instructions [here](https://www.linode.com/docs/applications/containers/how-to-install-docker-and-deploy-a-lamp-stack/) to install a Docker LAMP stack container.
-2. Run the following command to start the container and attach it to the project directory:
-`sudo docker run --name=php -v [DIRECTORY WHERE THIS PROJECT IS LOCATED]:/var/www/example.com/public_html/ -p 80:80 -t -i linode/lamp /bin/bash`
+1. Pull the Apache PHP Docker container from webdevops: `docker pull webdevops/php-apache`
+2. Run the following command to start the container: `docker run -v [tweet-intel source directory]:/app/ -p 80:80 -i webdevops/php-apache`
 3. Setup your environment variables according to the code
-`
-ACCESS_TOKEN=""
-ACCESS_TOKEN_SECRET=""
-CONSUMER_KEY=""
-CONSUMER_SECRET=""
-`
-3. Once the container is launched, run `service apache2 start` to start the Apache Web Server.
-4. Run `ifconfig` to determine the IP address of your container (so you can access the web server)
-5. Visit the IP address from step 4 to see the Tweet Intel page.
+`ACCESS_TOKEN="[Twitter API Access Token]"`
+`ACCESS_TOKEN_SECRET="[Twitter API Access Token Secret]"`
+`CONSUMER_KEY="[Twitter API Key]"`
+`CONSUMER_SECRET="[Twitter API Secret Key]"`
+`SEARCH_TERM="[Twitter Search Term]"`
+`TWEET_COUNT="[Number of Tweets to display]"`
 
-Thanks J7mbo for creating the [twitter-api-php](https://github.com/J7mbo/twitter-api-php) library!
+3. Run `ifconfig` to determine the IP address of your container (so you can access the web server)
+4. Visit the IP address from step 4 to see the Tweet Intel page.
