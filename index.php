@@ -4,23 +4,10 @@
         <title>BLM Alert</title>
         <meta name=”viewport” content=”width=device-width, initial-scale=1″>
         <meta charset="UTF-8">
-    </head>
-
-    <body style="background-color:DimGray">
-        <h1>BLM Alerts: Real time protest information and resources.</h1>
-        <h2>Note: this website is far from finished.</h2>
-        <p style="font-size:100%">
-        The real-time information part of the site is a bit inconsistent, so check out the resources page below if you want to help out in other ways.
-        Also, I apologize for the poor formatting, designing web pages is not my strength. I'll probably fix it over the next few days.
-        Finally, this is not so mobile friendly yet, so I apologize to people on their phones. This is also something I'll hopefully fix soon.
-        </p>
-        <a href="/resources.html">Resources</a>
-
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <?php
-        require_once("twitter.php");
-        echo "<h3>Protest Information For " . date("d/m/Y") . "</h3>";
-
         # Set up our Twitter API client
+        require_once("twitter.php");
         /*
         $twitter_keys = array(
             "oauth_access_token" => $_ENV["ACCESS_TOKEN"],
@@ -46,6 +33,33 @@
         );
 
         $twitter = new TwitterAPIExchange($twitter_keys);
+        ?>
+    </head>
+
+    <body class="w3-container w3-pale-yellow w3-mobile">
+
+        <header class="w3-blue-grey">
+            <h1>BLM Alerts: Real time protest information and resources.</h1>
+            <a href="/index.php">Home</a>
+            <a href="/resources.html">Resources</a>
+        </header>
+        <hr>
+
+        <h3>Note: this website is far from finished.</h2>
+        <p>
+        The real-time information part of the site is a bit inconsistent, so check out the resources page below if you want to help out in other ways.
+        Also, I apologize for the poor formatting, designing web pages is not my strength. I'll probably fix it over the next few days.
+        Finally, this is not so mobile friendly yet, so I apologize to people on their phones. This is also something I'll hopefully fix soon.
+        </p>
+
+        <h4>Locations</h4>
+        <a href="#LosAngeles">Los Angeles</a>
+        <a href="#ElSegundo">El Segundo</a>
+        <a href="#Hawthorne">Hawthorne</a>
+
+        <?php
+        # TODO: PUT IN LOCATION SECTIONS 
+        echo "<h5>Protest Information For " . date("d/m/Y") . "</h5>";
 
         # Grab trends from a location
         $trends = get_location_trends($twitter, $places["Los Angeles"]);
@@ -85,11 +99,33 @@
             echo "</p>";
             echo "<hr>";
         } */
-
         ?>
 
-        <footer style="font-size:120%">
-        Made with 💙 by TheCodeWeaver. <a href="https://github.com/thecodeweaver/tweet-intel/">Source code</a>
+        <section id="LosAngeles">
+        <?php
+        # Code for Los Angeles location
+        # Put in a list (https://www.w3schools.com/w3css/w3css_lists.asp)
+        ?>
+        </section>
+
+        <section id="ElSegundo">
+        <?php
+        # Code for El Segundo location
+        # Put in a list (https://www.w3schools.com/w3css/w3css_lists.asp)
+        ?>
+        </section>
+
+        <section id="Hawthorne">
+        <?php
+        # Code for Hawthorne location
+        # Put in a list (https://www.w3schools.com/w3css/w3css_lists.asp)
+        ?>
+        </section>
+
+        <hr>
+        <footer class="w3-blue-grey">
+        Made with 💙 by <a href="https://github.com/thecodeweaver/">TheCodeWeaver</a>
         </footer>
+
     </body>
 </html>
