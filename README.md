@@ -1,6 +1,7 @@
 # blm-alert
 This is a fork of [tweet-intel](https://github.com/thecodeweaver/tweet-intel) to provide information on Black Lives Matter protests.
 Made with 💙 by TheCodeWeaver.
+Thanks J7mbo for creating the [twitter-api-php](https://github.com/J7mbo/twitter-api-php) library!
 
 ## Running in a Docker container
 1. Pull the Apache PHP Docker container from webdevops: `docker pull webdevops/php-apache`
