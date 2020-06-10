@@ -11,8 +11,6 @@ Thanks J7mbo for creating the [twitter-api-php](https://github.com/J7mbo/twitter
 `ACCESS_TOKEN_SECRET="[Twitter API Access Token Secret]"`
 `CONSUMER_KEY="[Twitter API Key]"`
 `CONSUMER_SECRET="[Twitter API Secret Key]"`
-`SEARCH_TERM="[Twitter Search Term]"`
-`TWEET_COUNT="[Number of Tweets to display]"`
 
 3. Run `ifconfig` to determine the IP address of your container (so you can access the web server)
 4. Visit the IP address from step 4 to see the Tweet Intel page.
