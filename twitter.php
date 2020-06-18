@@ -47,4 +47,40 @@ function search_twitter($twitter_client, $search) {
     return $json; # Return JSON object of the result
 }
 
+# Get the trends from a location and return a list of the latest tweets from each trend
+function get_tweets_by_location($twitter_client, $woeid) {
+    # Grab trends from a location
+    $trends = get_location_trends($twitter_client, $woeid);
+            
+    # Filter out BlackLivesMatter related trends
+    $blm_trends = array();
+    for ($i = 0; $i < count($trends); $i++) {
+        if (preg_match("/BlackLivesMatter|protest|loot/i", $trends[$i]->{"name"})) {
+            array_push($blm_trends, $trends[$i]->{"name"});
+        }
+    }
+
+    $tweets = array();
+    if (count($blm_trends) === 0) {
+        # No trends for LA area
+        array_push($tweets, "None");
+        return $tweets;
+    } else {
+        for ($i = 0; $i < count($blm_trends); $i++) {
+            $json = search_twitter($twitter_client, $blm_trends[$i]);
+
+            $screen_name = "@" . $json->{"statuses"}[$j]->{"user"}->{"screen_name"};
+            $tweet = $json->{"statuses"}[$j]->{"text"};
+
+            if (strlen($screen_name) < 1 || strlen($tweet) < 1) {
+                continue;
+            }
+
+            array_push($tweets, $screen_name . ": " . $tweet);
+        }
+    }
+
+    return $tweets;
+}
+
 ?>
