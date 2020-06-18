@@ -5,11 +5,19 @@ require_once("TwitterAPIExchange.php");
 
 function twitter_init() {
 
+    /*
     $twitter_keys = array(
     "oauth_access_token" => $_ENV["ACCESS_TOKEN"],
     "oauth_access_token_secret" => $_ENV["ACCESS_TOKEN_SECRET"],
     "consumer_key" => $_ENV["CONSUMER_KEY"],
     "consumer_secret" => $_ENV["CONSUMER_SECRET"]
+    ); */
+
+    $twitter_keys = array(
+        "oauth_access_token" => "1212840451243331584-NHMZHA1X7jb5u5W7q9yHpfKVyb1j52",
+        "oauth_access_token_secret" => "nGi7M7cM2AeoSAIK87lIK9qZMkQbuw4EOypq05EUphxG9",
+        "consumer_key" => "KSTAn1OedA9fjfGUmOyNFJOlF",
+        "consumer_secret" => "gQZAXcihrdKaAhzw5VCYcnVrD9Ah2njs12cduTZ68hLV51qklV"
     );
 
     return new TwitterAPIExchange($twitter_keys);
