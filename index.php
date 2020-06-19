@@ -51,7 +51,8 @@
             ?>
 
             <section id="LosAngeles">
-                <ul class="w3-ul w3-border">
+            <div class="w3-card w3-theme-d2">
+                <ul class="w3-ul">
                     <li><h6>Los Angeles</h6></li>
                     <?php
                         $tweets = get_tweets_by_location($twitter, $places["Los Angeles"]);
@@ -65,10 +66,12 @@
                         }
                     ?>
                 </ul>
+            </div>
             </section>
 
             <section id="Sacramento">
-                <ul class="w3-ul w3-border">
+            <div class="w3-card w3-theme-d2">
+                <ul class="w3-ul">
                     <li><h6>Sacramento</h6></li>
                     <?php
                         $tweets = get_tweets_by_location($twitter, $places["Sacramento"]);
@@ -82,10 +85,12 @@
                         }
                     ?>
                 </ul>
+            </div>
             </section>
 
             <section id="New York">
-                <ul class="w3-ul w3-border">
+            <div class="w3-card w3-theme-d2">
+                <ul class="w3-ul">
                     <li><h6>New Yorks</h6></li>
                     <?php
                         $tweets = get_tweets_by_location($twitter, $places["New York"]);
@@ -99,10 +104,11 @@
                         }
                     ?>
                 </ul>
+            </div>
             </section>
         </div>
 
-    <div class="footer w3-theme-d4">
+    <div class="footer w3-theme-d4" style="margin-top:20px;">
     Made with 💙 by <a href="https://thecodeweaver.github.io/">TheCodeWeaver</a>
     </div>
 
