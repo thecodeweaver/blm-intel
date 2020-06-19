@@ -38,91 +38,95 @@
             ?>
 
             <section id="LosAngeles">
-            <?php
-            # Code for Los Angeles location
-            # Put in a list (https://www.w3schools.com/w3css/w3css_lists.asp)
-            # Grab trends from a location
-            $trends = get_location_trends($twitter, $places["Los Angeles"]);
-            
-            # Filter out BlackLivesMatter related trends
-            $blm_trends = array();
-            for ($i = 0; $i < count($trends); $i++) {
-                if (preg_match("/BlackLivesMatter|protest|loot/i", $trends[$i]->{"name"})) {
-                    array_push($blm_trends, $trends[$i]->{"name"});
-                }
-            }
-            
-            if (count($blm_trends) === 0) {
-                # No trends for LA area
-                echo "No protest trends on Twitter for the Los Angeles area!";
-            } else {
-                # TODO: Search for BLM related Tweets
-                echo "<ul class=\"w3-ul w3-border\">";
-                echo "<li><h6>Los Angeles</h6></li>";
-
-                for ($i = 0; $i < count($blm_trends); $i++) {
-                    $json = search_twitter($twitter, $blm_trends[$i]);
-
-                    for ($j = 0; $j < 5; $j++) {
-                        $screen_name = "@" . $json->{"statuses"}[$j]->{"user"}->{"screen_name"};
-                        $tweet = $json->{"statuses"}[$j]->{"text"};
-
-                        if (strlen($screen_name) < 1 || strlen($tweet) < 1) {
-                            continue;
-                        }
-
-                        echo "<li>" . $screen_name . ": " . $tweet . "</li>";
+            <div class="w3-card w3-theme-d2">
+                <?php
+                # Code for Los Angeles location
+                # Put in a list (https://www.w3schools.com/w3css/w3css_lists.asp)
+                # Grab trends from a location
+                $trends = get_location_trends($twitter, $places["Los Angeles"]);
+                
+                # Filter out BlackLivesMatter related trends
+                $blm_trends = array();
+                for ($i = 0; $i < count($trends); $i++) {
+                    if (preg_match("/BlackLivesMatter|protest|loot/i", $trends[$i]->{"name"})) {
+                        array_push($blm_trends, $trends[$i]->{"name"});
                     }
                 }
+                
+                if (count($blm_trends) === 0) {
+                    # No trends for LA area
+                    echo "No protest trends on Twitter for the Los Angeles area!";
+                } else {
+                    # TODO: Search for BLM related Tweets
+                    echo "<ul class=\"w3-ul\">";
+                    echo "<li><h6>Los Angeles</h6></li>";
 
-                echo "</ul>";
-            }
-            ?>
+                    for ($i = 0; $i < count($blm_trends); $i++) {
+                        $json = search_twitter($twitter, $blm_trends[$i]);
+
+                        for ($j = 0; $j < 5; $j++) {
+                            $screen_name = "@" . $json->{"statuses"}[$j]->{"user"}->{"screen_name"};
+                            $tweet = $json->{"statuses"}[$j]->{"text"};
+
+                            if (strlen($screen_name) < 1 || strlen($tweet) < 1) {
+                                continue;
+                            }
+
+                            echo "<li>" . $screen_name . ": " . $tweet . "</li>";
+                        }
+                    }
+
+                    echo "</ul>";
+                }
+                ?>
+            </div>
             </section>
 
             <hr>
 
             <section id="Sacramento">
-            <?php
-            # Code for Los Angeles location
-            # Put in a list (https://www.w3schools.com/w3css/w3css_lists.asp)
-            # Grab trends from a location
-            $trends = get_location_trends($twitter, $places["Sacramento"]);
-            
-            # Filter out BlackLivesMatter related trends
-            $blm_trends = array();
-            for ($i = 0; $i < count($trends); $i++) {
-                if (preg_match("/BlackLivesMatter|protest|loot/i", $trends[$i]->{"name"})) {
-                    array_push($blm_trends, $trends[$i]->{"name"});
-                }
-            }
-            
-            if (count($blm_trends) === 0) {
-                # No trends for LA area
-                echo "No protest trends on Twitter for the Sacramento area!";
-            } else {
-                # TODO: Search for BLM related Tweets
-                echo "<ul class=\"w3-ul w3-border\">";
-                echo "<li><h6>Sacramento</h6></li>";
-
-                for ($i = 0; $i < count($blm_trends); $i++) {
-                    $json = search_twitter($twitter, $blm_trends[$i]);
-
-                    for ($j = 0; $j < 5; $j++) {
-                        $screen_name = "@" . $json->{"statuses"}[$j]->{"user"}->{"screen_name"};
-                        $tweet = $json->{"statuses"}[$j]->{"text"};
-
-                        if (strlen($screen_name) < 1 || strlen($tweet) < 1) {
-                            continue;
-                        }
-
-                        echo "<li>" . $screen_name . ": " . $tweet . "</li>";
+            <div class="w3-card w3-theme-d2">
+                <?php
+                # Code for Los Angeles location
+                # Put in a list (https://www.w3schools.com/w3css/w3css_lists.asp)
+                # Grab trends from a location
+                $trends = get_location_trends($twitter, $places["Sacramento"]);
+                
+                # Filter out BlackLivesMatter related trends
+                $blm_trends = array();
+                for ($i = 0; $i < count($trends); $i++) {
+                    if (preg_match("/BlackLivesMatter|protest|loot/i", $trends[$i]->{"name"})) {
+                        array_push($blm_trends, $trends[$i]->{"name"});
                     }
                 }
+                
+                if (count($blm_trends) === 0) {
+                    # No trends for LA area
+                    echo "No protest trends on Twitter for the Sacramento area!";
+                } else {
+                    # TODO: Search for BLM related Tweets
+                    echo "<ul class=\"w3-ul w3-border\">";
+                    echo "<li><h6>Sacramento</h6></li>";
 
-                echo "</ul>";
-            }
-            ?>
+                    for ($i = 0; $i < count($blm_trends); $i++) {
+                        $json = search_twitter($twitter, $blm_trends[$i]);
+
+                        for ($j = 0; $j < 5; $j++) {
+                            $screen_name = "@" . $json->{"statuses"}[$j]->{"user"}->{"screen_name"};
+                            $tweet = $json->{"statuses"}[$j]->{"text"};
+
+                            if (strlen($screen_name) < 1 || strlen($tweet) < 1) {
+                                continue;
+                            }
+
+                            echo "<li>" . $screen_name . ": " . $tweet . "</li>";
+                        }
+                    }
+
+                    echo "</ul>";
+                }
+                ?>
+            </div>
             </section>
         </div>
 
